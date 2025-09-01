@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6978DAF6134406F8004B9ABB /* BGHUDAppKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 698F4733133B72BC00311E34 /* BGHUDAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		6978DAF7134406FD004B9ABB /* OAuthConsumer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 698F4734133B72BC00311E34 /* OAuthConsumer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		6978DAF813440701004B9ABB /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 698F4735133B72BC00311E34 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		6978DAF813440701004B9ABB /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 698F470A133B714200311E34 /* ShortcutRecorder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		698F4620133B5AF900311E34 /* audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45B8133B5AF900311E34 /* audio.png */; };
 		698F4621133B5AF900311E34 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45B9133B5AF900311E34 /* calendar.png */; };
 		698F4622133B5AF900311E34 /* compile.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45BA133B5AF900311E34 /* compile.png */; };
@@ -44,6 +44,7 @@
 		698F464B133B5AF900311E34 /* GettingThingsDoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F45F0133B5AF900311E34 /* GettingThingsDoneController.m */; };
 		698F464C133B5AF900311E34 /* GrowlController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F45F2133B5AF900311E34 /* GrowlController.m */; };
 		698F464D133B5AF900311E34 /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F45F4133B5AF900311E34 /* GrowlNotifier.m */; };
+		DBAC0003133B5AF900311E34 /* GrowlApplicationBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = DBAC0002133B5AF900311E34 /* GrowlApplicationBridge.m */; };
 		698F464E133B5AF900311E34 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F45F6133B5AF900311E34 /* LoginController.m */; };
 		698F464F133B5AF900311E34 /* Pomodoro.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F45F8133B5AF900311E34 /* Pomodoro.m */; };
 		698F4650133B5AF900311E34 /* PomodoroArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F45FA133B5AF900311E34 /* PomodoroArrayController.m */; };
@@ -83,11 +84,10 @@
 		698F46FB133B709600311E34 /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F46FA133B709600311E34 /* CalendarStore.framework */; };
 		698F4736133B72BD00311E34 /* BGHUDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4733133B72BC00311E34 /* BGHUDAppKit.framework */; };
 		698F4737133B72BD00311E34 /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4734133B72BC00311E34 /* OAuthConsumer.framework */; };
-		698F4738133B72BD00311E34 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4735133B72BC00311E34 /* ShortcutRecorder.framework */; };
+		698F4738133B72BD00311E34 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F470A133B714200311E34 /* ShortcutRecorder.framework */; };
 		698F473A133B72E800311E34 /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4739133B72E800311E34 /* Automator.framework */; };
 		698F473C133B731600311E34 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F473B133B731600311E34 /* Carbon.framework */; };
 		698F4747133B7A5B00311E34 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 698F4746133B7A5B00311E34 /* Growl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		698F4748133B7A9100311E34 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4746133B7A5B00311E34 /* Growl.framework */; };
 		699CE31D1366D0E500BBC486 /* soundHigh.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CE31B1366D0E500BBC486 /* soundHigh.png */; };
 		699CE31E1366D0E500BBC486 /* soundLow.png in Resources */ = {isa = PBXBuildFile; fileRef = 699CE31C1366D0E500BBC486 /* soundLow.png */; };
 		69AE95E8133B4705004DC14D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69AE95E7133B4705004DC14D /* Cocoa.framework */; };
@@ -155,26 +155,12 @@
 			remoteGlobalIDString = 93983B220DA43C4E007F53F3;
 			remoteInfo = ShortcutRecorderFramework_Tester;
 		};
-		698F470D133B714200311E34 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 698F46FE133B714100311E34 /* ShortcutRecorder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 342E0104109CCC36009AD8CA;
-			remoteInfo = "ShortcutRecorder.framework - for embedding in ibplugin";
-		};
 		698F470F133B716800311E34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 698F46FE133B714100311E34 /* ShortcutRecorder.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 342E0208109CCE71009AD8CA;
 			remoteInfo = "Build ShortcutRecorder.framework";
-		};
-		698F4711133B716800311E34 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 698F46FE133B714100311E34 /* ShortcutRecorder.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 342E00EB109CCC36009AD8CA;
-			remoteInfo = "ShortcutRecorder.framework - for embedding in ibplugin";
 		};
 		698F4720133B71C300311E34 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -227,7 +213,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				698F4747133B7A5B00311E34 /* Growl.framework in CopyFiles */,
 				6978DAF813440701004B9ABB /* ShortcutRecorder.framework in CopyFiles */,
 				6978DAF6134406F8004B9ABB /* BGHUDAppKit.framework in CopyFiles */,
 				6978DAF7134406FD004B9ABB /* OAuthConsumer.framework in CopyFiles */,
@@ -301,7 +286,9 @@
 		698F45F1133B5AF900311E34 /* GrowlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowlController.h; path = src/GrowlController.h; sourceTree = "<group>"; };
 		698F45F2133B5AF900311E34 /* GrowlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlController.m; path = src/GrowlController.m; sourceTree = "<group>"; };
 		698F45F3133B5AF900311E34 /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowlNotifier.h; path = src/GrowlNotifier.h; sourceTree = "<group>"; };
-		698F45F4133B5AF900311E34 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlNotifier.m; path = src/GrowlNotifier.m; sourceTree = "<group>"; };
+			698F45F4133B5AF900311E34 /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlNotifier.m; path = src/GrowlNotifier.m; sourceTree = "<group>"; };
+			DBAC0001133B5AF900311E34 /* GrowlApplicationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GrowlApplicationBridge.h; path = src/Growl/GrowlApplicationBridge.h; sourceTree = "<group>"; };
+			DBAC0002133B5AF900311E34 /* GrowlApplicationBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GrowlApplicationBridge.m; path = src/Growl/GrowlApplicationBridge.m; sourceTree = "<group>"; };
 		698F45F5133B5AF900311E34 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = src/LoginController.h; sourceTree = "<group>"; };
 		698F45F6133B5AF900311E34 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = src/LoginController.m; sourceTree = "<group>"; };
 		698F45F7133B5AF900311E34 /* Pomodoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pomodoro.h; path = src/Pomodoro.h; sourceTree = "<group>"; };
@@ -384,7 +371,6 @@
 		698F4722133B71D700311E34 /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthConsumer.xcodeproj; path = externalFw/OAuthConsumer/OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
 		698F4733133B72BC00311E34 /* BGHUDAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BGHUDAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		698F4734133B72BC00311E34 /* OAuthConsumer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OAuthConsumer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		698F4735133B72BC00311E34 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		698F4739133B72E800311E34 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
 		698F473B133B731600311E34 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		698F4746133B7A5B00311E34 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = externalFw/Growl.framework; sourceTree = "<group>"; };
@@ -460,7 +446,6 @@
 				698F4738133B72BD00311E34 /* ShortcutRecorder.framework in Frameworks */,
 				698F473A133B72E800311E34 /* Automator.framework in Frameworks */,
 				69AE95E8133B4705004DC14D /* Cocoa.framework in Frameworks */,
-				698F4748133B7A9100311E34 /* Growl.framework in Frameworks */,
 				698F473C133B731600311E34 /* Carbon.framework in Frameworks */,
 				698F46FB133B709600311E34 /* CalendarStore.framework in Frameworks */,
 				698F46F9133B708700311E34 /* libxml2.dylib in Frameworks */,
@@ -605,6 +590,8 @@
 				698F45EE133B5AF900311E34 /* DurationFormatter.m */,
 				698F45F3133B5AF900311E34 /* GrowlNotifier.h */,
 				698F45F4133B5AF900311E34 /* GrowlNotifier.m */,
+				DBAC0001133B5AF900311E34 /* GrowlApplicationBridge.h */,
+				DBAC0002133B5AF900311E34 /* GrowlApplicationBridge.m */,
 				698F45FD133B5AF900311E34 /* PomodoroDefaults.h */,
 				698F45FE133B5AF900311E34 /* PomodoroDefaults.m */,
 				698F4602133B5AF900311E34 /* Scripter.h */,
@@ -688,16 +675,15 @@
 			name = PTHotKey;
 			sourceTree = "<group>";
 		};
-		698F46FF133B714100311E34 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				698F470A133B714200311E34 /* ShortcutRecorder.framework */,
-				698F470C133B714200311E34 /* ShortcutRecorder.app */,
-				698F470E133B714200311E34 /* ShortcutRecorder.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
+			698F46FF133B714100311E34 /* Products */ = {
+				isa = PBXGroup;
+				children = (
+					698F470A133B714200311E34 /* ShortcutRecorder.framework */,
+					698F470C133B714200311E34 /* ShortcutRecorder.app */,
+				);
+				name = Products;
+				sourceTree = "<group>";
+			};
 		698F4713133B719900311E34 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,17 +758,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		69AE95E9133B4705004DC14D /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				698F4746133B7A5B00311E34 /* Growl.framework */,
-				698F4733133B72BC00311E34 /* BGHUDAppKit.framework */,
-				698F4734133B72BC00311E34 /* OAuthConsumer.framework */,
-				698F4735133B72BC00311E34 /* ShortcutRecorder.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
+			69AE95E9133B4705004DC14D /* Other Frameworks */ = {
+				isa = PBXGroup;
+				children = (
+					698F4746133B7A5B00311E34 /* Growl.framework */,
+					698F4733133B72BC00311E34 /* BGHUDAppKit.framework */,
+					698F4734133B72BC00311E34 /* OAuthConsumer.framework */,
+				);
+				name = "Other Frameworks";
+				sourceTree = "<group>";
+			};
 		69AE95ED133B4705004DC14D /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,9 +876,8 @@
 			);
 			dependencies = (
 				698F4732133B71EF00311E34 /* PBXTargetDependency */,
-				698F4730133B71EA00311E34 /* PBXTargetDependency */,
-				698F4710133B716800311E34 /* PBXTargetDependency */,
-				698F4712133B716800311E34 /* PBXTargetDependency */,
+					698F4730133B71EA00311E34 /* PBXTargetDependency */,
+					698F4710133B716800311E34 /* PBXTargetDependency */,
 			);
 			name = Pomodoro;
 			productName = Pomodoro;
@@ -978,13 +962,6 @@
 			remoteRef = 698F470B133B714200311E34 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		698F470E133B714200311E34 /* ShortcutRecorder.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ShortcutRecorder.framework;
-			remoteRef = 698F470D133B714200311E34 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		698F4721133B71C300311E34 /* BGHUDAppKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1013,23 +990,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBD776E316605886003F58B4 /* getActiveUrlsFromBrowsers.applescript in Resources */,
-				DB4C2A8A166889F0000B2718 /* setStatusToAvailableInMessages.applescript in Resources */,
-				DB4C2A8B166889F0000B2718 /* setStatusToPomodoroInMessages.applescript in Resources */,
-				DCAF37CD164B074D003764C9 /* getToDoListFromReminders.applescript in Resources */,
-				DCAF37CE164B074D003764C9 /* addTodoToReminders.applescript in Resources */,
-				69ED63FB133B9F5F003F59BA /* addTodoToOmniFocus.applescript in Resources */,
-				69ED63FC133B9F5F003F59BA /* addTodoToThings.applescript in Resources */,
-				69ED63FD133B9F5F003F59BA /* getToDoListFromOmniFocus.applescript in Resources */,
-				69ED63FE133B9F5F003F59BA /* getToDoListFromThings.applescript in Resources */,
-				69ED63FF133B9F5F003F59BA /* insertIntoLoginItems.applescript in Resources */,
-				69ED6400133B9F5F003F59BA /* removeFromLoginItems.applescript in Resources */,
-				69ED6401133B9F5F003F59BA /* setStatusToAvailableInAdium.applescript in Resources */,
-				69ED6402133B9F5F003F59BA /* setStatusToAvailableInIChat.applescript in Resources */,
-				69ED6403133B9F5F003F59BA /* setStatusToAvailableInSkype.applescript in Resources */,
-				69ED6404133B9F5F003F59BA /* setStatusToPomodoroInAdium.applescript in Resources */,
-				69ED6405133B9F5F003F59BA /* setStatusToPomodoroInIChat.applescript in Resources */,
-				69ED6406133B9F5F003F59BA /* setStatusToPomodoroInSkype.applescript in Resources */,
 				698F4620133B5AF900311E34 /* audio.png in Resources */,
 				698F4621133B5AF900311E34 /* calendar.png in Resources */,
 				698F4622133B5AF900311E34 /* compile.png in Resources */,
@@ -1179,15 +1139,12 @@
 				69D17E18136C0ECB00F5D922 /* ForceCommand.m in Sources */,
 				69D17E1B136C0F6300F5D922 /* ExternalInterruptCommand.m in Sources */,
 				69D17E21136C101900F5D922 /* ResumeCommand.m in Sources */,
-				69D17E24136C103800F5D922 /* InternalInterruptCommand.m in Sources */,
-				DCAF37C8164AE360003764C9 /* getToDoListFromReminders.applescript in Sources */,
-				DCAF37CC164AFB6C003764C9 /* addTodoToReminders.applescript in Sources */,
-				DBD776D916604A63003F58B4 /* getActiveUrlsFromBrowsers.applescript in Sources */,
-				DBD776E216605537003F58B4 /* BrowsingNannyController.m in Sources */,
+					69D17E24136C103800F5D922 /* InternalInterruptCommand.m in Sources */,
+					DBD776E216605537003F58B4 /* BrowsingNannyController.m in Sources */,
 				DB8AF4F4165EEB0F0039DA49 /* OpenUrlCommand.m in Sources */,
-				DB4C2A87166888A6000B2718 /* setStatusToAvailableInMessages.applescript in Sources */,
-				DB4C2A89166888D4000B2718 /* setStatusToPomodoroInMessages.applescript in Sources */,
-			);
+				
+					DBAC0003133B5AF900311E34 /* GrowlApplicationBridge.m in Sources */,
+				);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		69AE9602133B4706004DC14D /* Sources */ = {
@@ -1206,11 +1163,6 @@
 			isa = PBXTargetDependency;
 			name = "Build ShortcutRecorder.framework";
 			targetProxy = 698F470F133B716800311E34 /* PBXContainerItemProxy */;
-		};
-		698F4712133B716800311E34 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "ShortcutRecorder.framework - for embedding in ibplugin";
-			targetProxy = 698F4711133B716800311E34 /* PBXContainerItemProxy */;
 		};
 		698F4730133B71EA00311E34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1344,7 +1296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+					MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -1370,57 +1322,59 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+					MACOSX_DEPLOYMENT_TARGET = 13.0;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		69AE9619133B4706004DC14D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/externalFw\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pomodoro/Pomodoro-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
-				INFOPLIST_FILE = "Pomodoro/Pomodoro-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+			69AE9619133B4706004DC14D /* Debug */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ALWAYS_SEARCH_USER_PATHS = NO;
+					CLANG_ENABLE_OBJC_ARC = YES;
+					CODE_SIGN_IDENTITY = "";
+					COMBINE_HIDPI_IMAGES = YES;
+					COPY_PHASE_STRIP = NO;
+					FRAMEWORK_SEARCH_PATHS = (
+						"$(inherited)",
+						"\"$(SRCROOT)/externalFw\"",
+					);
+					GCC_DYNAMIC_NO_PIC = NO;
+					GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+					GCC_PRECOMPILE_PREFIX_HEADER = YES;
+					GCC_PREFIX_HEADER = "Pomodoro/Pomodoro-Prefix.pch";
+					HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
+					OTHER_LDFLAGS = ("-undefined", dynamic_lookup);
+					INFOPLIST_FILE = "Pomodoro/Pomodoro-Info.plist";
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					WRAPPER_EXTENSION = app;
+				};
+				name = Debug;
 			};
-			name = Debug;
-		};
-		69AE961A133B4706004DC14D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/externalFw\"",
-				);
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pomodoro/Pomodoro-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
-				INFOPLIST_FILE = "Pomodoro/Pomodoro-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+			69AE961A133B4706004DC14D /* Release */ = {
+				isa = XCBuildConfiguration;
+				buildSettings = {
+					ALWAYS_SEARCH_USER_PATHS = NO;
+					CLANG_ENABLE_OBJC_ARC = YES;
+					CODE_SIGN_IDENTITY = "";
+					COMBINE_HIDPI_IMAGES = YES;
+					COPY_PHASE_STRIP = YES;
+					DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+					FRAMEWORK_SEARCH_PATHS = (
+						"$(inherited)",
+						"\"$(SRCROOT)/externalFw\"",
+					);
+					GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+					GCC_PRECOMPILE_PREFIX_HEADER = YES;
+					GCC_PREFIX_HEADER = "Pomodoro/Pomodoro-Prefix.pch";
+					HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
+					OTHER_LDFLAGS = ("-undefined", dynamic_lookup);
+					INFOPLIST_FILE = "Pomodoro/Pomodoro-Info.plist";
+					PRODUCT_NAME = "$(TARGET_NAME)";
+					WRAPPER_EXTENSION = app;
+				};
+				name = Release;
 			};
-			name = Release;
-		};
 		69AE961C133B4706004DC14D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
