@@ -181,3 +181,10 @@ Release Notes
 - First public release
 - Added automatic breaks
 - Added $time and $passed placehoders
+1.4.0
+- EventKit calendar integration (macOS 13+):
+  - Replace legacy CalendarStore/AppleScript hooks with EventKit
+  - Create/reuse iCloud calendar named "Pomodoro"; store identifier
+  - Add/finish/delete session events with local timezone and notes
+  - New calendar permission prompts (write-only/full) in Info.plist
+  - Preference calendar picker uses writable calendars
