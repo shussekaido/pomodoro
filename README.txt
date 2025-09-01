@@ -78,6 +78,27 @@ Troubleshooting
   then relaunch and re‑enable the calendar option.
 - Logs: run `log stream --style syslog --predicate 'process == "Pomodoro"'` while starting/finishing a session.
 
+------------------------
+AppleScript Integrations
+------------------------
+
+On macOS 14/15, only a subset of built‑in AppleScripts are included by default to avoid OSA compile errors and focus on supported apps.
+
+- Included: `addTodoToReminders`, `getToDoListFromReminders`, `getActiveUrlsFromBrowsers`,
+  `insertIntoLoginItems`, `removeFromLoginItems`.
+- Deprecated (not bundled): Adium/iChat/Skype/Things/OmniFocus status/todo scripts. These target
+  legacy or unavailable dictionaries and may be reintroduced later behind an advanced toggle.
+
+Permissions
+- Automation: grant Pomodoro control of Reminders, Safari, Google Chrome, and System Events.
+  System Settings → Privacy & Security → Automation → enable under Pomodoro.
+- Accessibility: not required for these scripts, but may be requested by macOS when interacting
+  with UI elements.
+
+Notes
+- Reminders and browser scripts compile on a clean macOS 15 install without third‑party apps.
+- Scripts are compiled at runtime; if a script is missing, the app safely skips execution.
+
 -------
 Twitter
 -------

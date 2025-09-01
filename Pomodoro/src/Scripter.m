@@ -44,6 +44,9 @@
 	NSAppleScript* applescript = [scripts objectForKey:scriptId];
 	if (nil == applescript) {
 		NSString* scriptFileName = [[NSBundle mainBundle] pathForResource: scriptId ofType: @"applescript"];
+		if (scriptFileName == nil) {
+			return nil; // script not bundled
+		}
 		applescript = [[NSAppleScript alloc] initWithContentsOfURL: [NSURL fileURLWithPath: scriptFileName] error: nil];
 		[applescript compileAndReturnError:nil];
 		[scripts setObject:applescript forKey:scriptId];
@@ -56,6 +59,9 @@
 	NSString* scriptText = [scripts objectForKey:scriptId];
 	if (nil == scriptText) {
 		NSString* scriptFileName = [[NSBundle mainBundle] pathForResource: scriptId ofType: @"applescript"];
+		if (scriptFileName == nil) {
+			return nil; // script not bundled
+		}
 		scriptText = [[NSString alloc] initWithContentsOfURL: [NSURL fileURLWithPath: scriptFileName]];
 		[scripts setObject:scriptText forKey:scriptId];
 	} 
