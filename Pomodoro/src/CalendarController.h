@@ -38,5 +38,6 @@
 @property (unsafe_unretained) IBOutlet NSComboBox* calendarsCombo;
 
 - (IBAction)initCalendars:(id)sender;
+- (IBAction)calendarSelectionChanged:(id)sender;
 
 @end

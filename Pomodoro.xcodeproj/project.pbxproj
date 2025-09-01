@@ -57,6 +57,7 @@
 		698F4657133B5AF900311E34 /* SplashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F4609133B5AF900311E34 /* SplashController.m */; };
 		698F4658133B5AF900311E34 /* StatsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F460B133B5AF900311E34 /* StatsController.m */; };
 		698F4659133B5AF900311E34 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F460D133B5AF900311E34 /* TwitterController.m */; };
+		DBE0F0201A2B3C4D5E6F0002 /* PDCalendarService.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE0F01F1A2B3C4D5E6F0003 /* PDCalendarService.m */; };
 		698F465A133B5AF900311E34 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 698F460F133B5AF900311E34 /* README.txt */; };
 		698F465B133B5AF900311E34 /* ReleaseNotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 698F4610133B5AF900311E34 /* ReleaseNotes.txt */; };
 		698F46C9133B5F9500311E34 /* MGTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F4696133B5F9500311E34 /* MGTwitterEngine.m */; };
@@ -81,7 +82,7 @@
 		698F46EB133B601500311E34 /* PTKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F46E6133B601500311E34 /* PTKeyCodeTranslator.m */; };
 		698F46EC133B601500311E34 /* PTKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 698F46E8133B601500311E34 /* PTKeyCombo.m */; };
 		698F46F9133B708700311E34 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F46F8133B708700311E34 /* libxml2.dylib */; };
-		698F46FB133B709600311E34 /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F46FA133B709600311E34 /* CalendarStore.framework */; };
+		DBE0F00D1A2B3C4D5E6F0001 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE0F00C1A2B3C4D5E6F0000 /* EventKit.framework */; };
 		698F4736133B72BD00311E34 /* BGHUDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4733133B72BC00311E34 /* BGHUDAppKit.framework */; };
 		698F4737133B72BD00311E34 /* OAuthConsumer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F4734133B72BC00311E34 /* OAuthConsumer.framework */; };
 		698F4738133B72BD00311E34 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 698F470A133B714200311E34 /* ShortcutRecorder.framework */; };
@@ -138,6 +139,7 @@
 		DCAF37CC164AFB6C003764C9 /* addTodoToReminders.applescript in Sources */ = {isa = PBXBuildFile; fileRef = DCAF37CB164AFB6C003764C9 /* addTodoToReminders.applescript */; };
 		DCAF37CD164B074D003764C9 /* getToDoListFromReminders.applescript in Resources */ = {isa = PBXBuildFile; fileRef = DCAF37C7164AE360003764C9 /* getToDoListFromReminders.applescript */; };
 		DCAF37CE164B074D003764C9 /* addTodoToReminders.applescript in Resources */ = {isa = PBXBuildFile; fileRef = DCAF37CB164AFB6C003764C9 /* addTodoToReminders.applescript */; };
+		DBF0AA01123456789ABCDE01 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF0AA00123456789ABCDE00 /* NotificationService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +301,8 @@
 		698F45FC133B5AF900311E34 /* PomodoroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PomodoroController.m; path = src/PomodoroController.m; sourceTree = "<group>"; };
 		698F45FD133B5AF900311E34 /* PomodoroDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PomodoroDefaults.h; path = src/PomodoroDefaults.h; sourceTree = "<group>"; };
 		698F45FE133B5AF900311E34 /* PomodoroDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PomodoroDefaults.m; path = src/PomodoroDefaults.m; sourceTree = "<group>"; };
+		DBE0F01E1A2B3C4D5E6F0004 /* PDCalendarService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDCalendarService.h; path = src/PDCalendarService.h; sourceTree = "<group>"; };
+		DBE0F01F1A2B3C4D5E6F0003 /* PDCalendarService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDCalendarService.m; path = src/PDCalendarService.m; sourceTree = "<group>"; };
 		698F45FF133B5AF900311E34 /* PomodoroNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PomodoroNotifier.h; path = src/PomodoroNotifier.h; sourceTree = "<group>"; };
 		698F4600133B5AF900311E34 /* PomodoroNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PomodoroNotifier.m; path = src/PomodoroNotifier.m; sourceTree = "<group>"; };
 		698F4601133B5AF900311E34 /* PomoNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PomoNotifications.h; path = src/PomoNotifications.h; sourceTree = "<group>"; };
@@ -364,7 +368,7 @@
 		698F46E7133B601500311E34 /* PTKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PTKeyCombo.h; path = externalFw/shortcutrecorder/Demo/HotKey/PTKeyCombo.h; sourceTree = SOURCE_ROOT; };
 		698F46E8133B601500311E34 /* PTKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PTKeyCombo.m; path = externalFw/shortcutrecorder/Demo/HotKey/PTKeyCombo.m; sourceTree = SOURCE_ROOT; };
 		698F46F8133B708700311E34 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		698F46FA133B709600311E34 /* CalendarStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CalendarStore.framework; path = System/Library/Frameworks/CalendarStore.framework; sourceTree = SDKROOT; };
+		DBE0F00C1A2B3C4D5E6F0000 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		698F46FC133B70B000311E34 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		698F46FE133B714100311E34 /* ShortcutRecorder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShortcutRecorder.xcodeproj; path = externalFw/shortcutrecorder/ShortcutRecorder.xcodeproj; sourceTree = "<group>"; };
 		698F4718133B71C300311E34 /* BGHUDAppKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BGHUDAppKit.xcodeproj; path = externalFw/BGHUDAppKit/BGHUDAppKit.xcodeproj; sourceTree = "<group>"; };
@@ -434,6 +438,8 @@
 		DBD776E116605536003F58B4 /* BrowsingNannyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowsingNannyController.m; path = src/BrowsingNannyController.m; sourceTree = "<group>"; };
 		DCAF37C7164AE360003764C9 /* getToDoListFromReminders.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = getToDoListFromReminders.applescript; sourceTree = "<group>"; };
 		DCAF37CB164AFB6C003764C9 /* addTodoToReminders.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = addTodoToReminders.applescript; sourceTree = "<group>"; };
+		DBF0A9FF123456789ABCDEFF /* NotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationService.h; path = src/NotificationService.h; sourceTree = "<group>"; };
+		DBF0AA00123456789ABCDE00 /* NotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationService.m; path = src/NotificationService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,7 +453,7 @@
 				698F473A133B72E800311E34 /* Automator.framework in Frameworks */,
 				69AE95E8133B4705004DC14D /* Cocoa.framework in Frameworks */,
 				698F473C133B731600311E34 /* Carbon.framework in Frameworks */,
-				698F46FB133B709600311E34 /* CalendarStore.framework in Frameworks */,
+				DBE0F00D1A2B3C4D5E6F0001 /* EventKit.framework in Frameworks */,
 				698F46F9133B708700311E34 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +604,10 @@
 				698F4603133B5AF900311E34 /* Scripter.m */,
 				69ED640F133BB31F003F59BA /* SmartTimer.h */,
 				69ED6410133BB31F003F59BA /* SmartTimer.m */,
+				DBE0F01E1A2B3C4D5E6F0004 /* PDCalendarService.h */,
+				DBE0F01F1A2B3C4D5E6F0003 /* PDCalendarService.m */,
+				DBF0A9FF123456789ABCDEFF /* NotificationService.h */,
+				DBF0AA00123456789ABCDE00 /* NotificationService.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -718,7 +728,7 @@
 				69AE95EC133B4705004DC14D /* Foundation.framework */,
 				69AE95EB133B4705004DC14D /* CoreData.framework */,
 				69AE95EA133B4705004DC14D /* AppKit.framework */,
-				698F46FA133B709600311E34 /* CalendarStore.framework */,
+				DBE0F00C1A2B3C4D5E6F0000 /* EventKit.framework */,
 				698F46FC133B70B000311E34 /* AppKit.framework */,
 				698F4739133B72E800311E34 /* Automator.framework */,
 				698F473B133B731600311E34 /* Carbon.framework */,
@@ -1112,6 +1122,7 @@
 				698F4657133B5AF900311E34 /* SplashController.m in Sources */,
 				698F4658133B5AF900311E34 /* StatsController.m in Sources */,
 				698F4659133B5AF900311E34 /* TwitterController.m in Sources */,
+				DBE0F0201A2B3C4D5E6F0002 /* PDCalendarService.m in Sources */,
 				698F46C9133B5F9500311E34 /* MGTwitterEngine.m in Sources */,
 				698F46CA133B5F9500311E34 /* MGTwitterHTTPURLConnection.m in Sources */,
 				698F46CB133B5F9500311E34 /* MGTwitterLibXMLParser.m in Sources */,
@@ -1142,7 +1153,8 @@
 					69D17E24136C103800F5D922 /* InternalInterruptCommand.m in Sources */,
 					DBD776E216605537003F58B4 /* BrowsingNannyController.m in Sources */,
 				DB8AF4F4165EEB0F0039DA49 /* OpenUrlCommand.m in Sources */,
-				
+				DBF0AA01123456789ABCDE01 /* NotificationService.m in Sources */,
+
 					DBAC0003133B5AF900311E34 /* GrowlApplicationBridge.m in Sources */,
 				);
 			runOnlyForDeploymentPostprocessing = 0;

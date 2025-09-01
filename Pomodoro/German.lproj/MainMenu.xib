@@ -1492,8 +1492,8 @@ wGw</bytes>
 							<object class="NSMutableString" key="NSToolbarItemIdentifier">
 								<characters key="NS.bytes">1827B4E4-417C-42AF-BCC1-0EE48F9C8A13</characters>
 							</object>
-							<string key="NSToolbarItemLabel">Growl</string>
-							<string key="NSToolbarItemPaletteLabel">Growl</string>
+							<string key="NSToolbarItemLabel">Benachrichtigungen</string>
+							<string key="NSToolbarItemPaletteLabel">Benachrichtigungen</string>
 							<string key="NSToolbarItemToolTip"/>
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
@@ -4379,7 +4379,7 @@ wGw</bytes>
 												<object class="NSButtonCell" key="NSCell" id="283459474">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">134217728</int>
-													<string key="NSContents">Growl Installation überprüfen</string>
+													<string key="NSContents">Benachrichtigungen prüfen</string>
 													<reference key="NSSupport" ref="190615124"/>
 													<reference key="NSControlView" ref="477774794"/>
 													<int key="NSButtonFlags">-2038284288</int>
@@ -4421,7 +4421,7 @@ wGw</bytes>
 										<string key="NSFrameSize">{810, 668}</string>
 										<reference key="NSNextKeyView" ref="1061796807"/>
 									</object>
-									<string key="NSLabel">Growl</string>
+									<string key="NSLabel">Benachrichtigungen</string>
 									<reference key="NSColor" ref="230566979"/>
 									<reference key="NSTabView" ref="282875536"/>
 								</object>
@@ -11282,7 +11282,7 @@ ZSBSZWdpc3RlcmthcnRlbiBiZXRyYWNodGV0IHdlcmRlbi4KA</string>
 							<reference ref="147862578"/>
 						</array>
 						<reference key="parent" ref="946611983"/>
-						<string key="objectName">Tab View (General, Pomodoro, Twitter, Voice, Growl, GTD, Scripts, Calendar, Shortcut)</string>
+						<string key="objectName">Tab View (General, Pomodoro, Twitter, Voice, Benachrichtigungen, GTD, Scripts, Calendar, Shortcut)</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">103</int>
