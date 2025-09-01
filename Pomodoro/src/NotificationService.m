@@ -1,12 +1,24 @@
 #import "NotificationService.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+#include <dlfcn.h>
 
 @interface NotificationService ()
 @property (nonatomic, assign) BOOL authorizationRequested;
 @end
 
 @implementation NotificationService
+
+static inline void PDLoadUserNotificationsFrameworkIfNeeded(void) {
+    // Ensure the UserNotifications framework is loaded when not linked at build time.
+    // This makes NSClassFromString(@"UNUserNotificationCenter") resolve on modern macOS.
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        if (NSClassFromString(@"UNUserNotificationCenter") == nil) {
+            dlopen("/System/Library/Frameworks/UserNotifications.framework/UserNotifications", RTLD_LAZY);
+        }
+    });
+}
 
 + (instancetype)shared {
     static NotificationService *instance = nil;
@@ -19,6 +31,7 @@
 
 - (instancetype)init {
     if ((self = [super init])) {
+        PDLoadUserNotificationsFrameworkIfNeeded();
         // Legacy center delegate so notifications show when frontmost.
         @try { [NSUserNotificationCenter defaultUserNotificationCenter].delegate = (id)self; } @catch (__unused id e) {}
         // Try to become UNUserNotificationCenter delegate so alerts show while app is frontmost.
@@ -35,6 +48,7 @@
 }
 
 - (void)requestAuthorizationIfNeeded {
+    PDLoadUserNotificationsFrameworkIfNeeded();
     Class UNCenter = NSClassFromString(@"UNUserNotificationCenter");
     if (!UNCenter) return; // Older macOS
     if (self.authorizationRequested) return;
@@ -52,10 +66,21 @@
 }
 
 - (void)postWithTitle:(NSString *)title body:(NSString *)body identifier:(NSString *)identifier {
+    PDLoadUserNotificationsFrameworkIfNeeded();
     Class UNCenter = NSClassFromString(@"UNUserNotificationCenter");
     Class UNContentClass = NSClassFromString(@"UNMutableNotificationContent");
     Class UNRequestClass = NSClassFromString(@"UNNotificationRequest");
-    if (!UNCenter || !UNContentClass || !UNRequestClass) return;
+    if (!UNCenter || !UNContentClass || !UNRequestClass) {
+        // Fallback to legacy path if UN framework is unavailable at runtime.
+        @try {
+            NSUserNotification *legacy = [[NSUserNotification alloc] init];
+            legacy.title = title ?: @"";
+            legacy.informativeText = body ?: @"";
+            legacy.soundName = NSUserNotificationDefaultSoundName;
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:legacy];
+        } @catch (__unused id e) {}
+        return;
+    }
 
     [self requestAuthorizationIfNeeded];
     // (Removed debug file logging)
