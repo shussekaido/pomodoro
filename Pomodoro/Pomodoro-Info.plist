@@ -43,6 +43,10 @@
 	<true/>
 	<key>NSAppleScriptEnabled</key>
 	<true/>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Calendar access is required to add and update your pomodoro sessions.</string>
+	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+	<string>This app adds pomodoro sessions to your calendar.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright (c) 2009-2011 Ugo Landini</string>
 	<key>NSMainNibFile</key>
