@@ -115,6 +115,9 @@
     }];
 
     [self initCalendars:self];
+    // Ensure action is wired even if XIB isn't
+    [self.calendarsCombo setTarget:self];
+    [self.calendarsCombo setAction:@selector(calendarSelectionChanged:)];
     [self registerForPomodoro:_PMPomoStarted method:@selector(pomodoroStarted:)];
     [self registerForPomodoro:_PMPomoFinished method:@selector(pomodoroFinished:)];
     [self registerForPomodoro:_PMPomoReset method:@selector(pomodoroReset:)];
