@@ -1305,28 +1305,7 @@
 							<bool key="NSToolbarIsUserRemovable">YES</bool>
 							<int key="NSToolbarItemVisibilityPriority">0</int>
 						</object>
-						<object class="NSToolbarItem" key="3B9AE70D-2CBB-46C8-A323-1478D1AA55BA" id="511967577">
-							<object class="NSMutableString" key="NSToolbarItemIdentifier">
-								<characters key="NS.bytes">3B9AE70D-2CBB-46C8-A323-1478D1AA55BA</characters>
-							</object>
-							<string key="NSToolbarItemLabel">GTD</string>
-							<string key="NSToolbarItemPaletteLabel">GTD</string>
-							<string key="NSToolbarItemToolTip"/>
-							<nil key="NSToolbarItemView"/>
-							<object class="NSCustomResource" key="NSToolbarItemImage">
-								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">pomodoro-gtd</string>
-							</object>
-							<nil key="NSToolbarItemTarget"/>
-							<nil key="NSToolbarItemAction"/>
-							<string key="NSToolbarItemMinSize">{0, 0}</string>
-							<string key="NSToolbarItemMaxSize">{0, 0}</string>
-							<bool key="NSToolbarItemEnabled">YES</bool>
-							<bool key="NSToolbarItemAutovalidates">YES</bool>
-							<int key="NSToolbarItemTag">4</int>
-							<bool key="NSToolbarIsUserRemovable">YES</bool>
-							<int key="NSToolbarItemVisibilityPriority">0</int>
-						</object>
+							<!-- GTD toolbar item removed -->
 						<object class="NSToolbarItem" key="680CDFD7-B168-4747-93E1-8550988039C6" id="625941100">
 							<object class="NSMutableString" key="NSToolbarItemIdentifier">
 								<characters key="NS.bytes">680CDFD7-B168-4747-93E1-8550988039C6</characters>
@@ -1443,30 +1422,30 @@
 							</object>
 						</object>
 					</dictionary>
-					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
-						<reference ref="472233532"/>
-						<reference ref="317516458"/>
-						<reference ref="412940860"/>
-						<reference ref="75158938"/>
-						<reference ref="511967577"/>
-						<reference ref="437126513"/>
-						<reference ref="625941100"/>
-						<reference ref="827447972"/>
-						<reference ref="932589005"/>
-						<reference ref="339892963"/>
-					</array>
-					<array key="NSToolbarIBDefaultItems">
-						<reference ref="472233532"/>
-						<reference ref="317516458"/>
-						<reference ref="412940860"/>
-						<reference ref="75158938"/>
-						<reference ref="511967577"/>
-						<reference ref="437126513"/>
-						<reference ref="625941100"/>
-						<reference ref="827447972"/>
-						<reference ref="932589005"/>
-						<reference ref="339892963"/>
-					</array>
+						<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+							<reference ref="472233532"/>
+							<reference ref="317516458"/>
+							<reference ref="412940860"/>
+							<reference ref="75158938"/>
+							<!-- Removed GTD toolbar item ref 511967577 from allowed items -->
+							<reference ref="437126513"/>
+							<reference ref="625941100"/>
+							<reference ref="827447972"/>
+							<reference ref="932589005"/>
+							<reference ref="339892963"/>
+						</array>
+						<array key="NSToolbarIBDefaultItems">
+							<reference ref="472233532"/>
+							<reference ref="317516458"/>
+							<reference ref="412940860"/>
+							<reference ref="75158938"/>
+							<!-- Removed GTD toolbar item ref 511967577 from default items -->
+							<reference ref="437126513"/>
+							<reference ref="625941100"/>
+							<reference ref="827447972"/>
+							<reference ref="932589005"/>
+							<reference ref="339892963"/>
+						</array>
 					<array class="NSMutableArray" key="NSToolbarIBSelectableItems"/>
 				</object>
 				<object class="NSView" key="NSWindowView" id="946611983">
@@ -1499,6 +1478,8 @@
 															<object class="NSButton" id="723868141">
 																<reference key="NSNextResponder" ref="466877436"/>
 																<int key="NSvFlags">268</int>
+																<bool key="NSHidden">YES</bool>
+																<bool key="NSHidden">YES</bool>
 																<string key="NSFrame">{{240, 129}, {126, 18}}</string>
 																<reference key="NSSuperview" ref="466877436"/>
 																<reference key="NSNextKeyView" ref="327871985"/>
@@ -1528,6 +1509,8 @@
 															<object class="NSButton" id="340439006">
 																<reference key="NSNextResponder" ref="466877436"/>
 																<int key="NSvFlags">268</int>
+																<bool key="NSHidden">YES</bool>
+																<bool key="NSHidden">YES</bool>
 																<string key="NSFrame">{{240, 62}, {84, 18}}</string>
 																<reference key="NSSuperview" ref="466877436"/>
 																<reference key="NSNextKeyView" ref="706118624"/>
@@ -1552,6 +1535,8 @@
 															<object class="NSButton" id="1032080259">
 																<reference key="NSNextResponder" ref="466877436"/>
 																<int key="NSvFlags">268</int>
+																<bool key="NSHidden">YES</bool>
+																<bool key="NSHidden">YES</bool>
 																<string key="NSFrame">{{240, 96}, {126, 18}}</string>
 																<reference key="NSSuperview" ref="466877436"/>
 																<reference key="NSNextKeyView" ref="672909842"/>
@@ -1576,6 +1561,8 @@
 															<object class="NSButton" id="86949463">
 																<reference key="NSNextResponder" ref="466877436"/>
 																<int key="NSvFlags">268</int>
+																<bool key="NSHidden">YES</bool>
+																<bool key="NSHidden">YES</bool>
 																<string key="NSFrame">{{240, 42}, {207, 18}}</string>
 																<reference key="NSSuperview" ref="466877436"/>
 																<reference key="NSNextKeyView" ref="892791123"/>
@@ -1600,6 +1587,7 @@
 															<object class="NSTextField" id="1061633165">
 																<reference key="NSNextResponder" ref="466877436"/>
 																<int key="NSvFlags">268</int>
+																<bool key="NSHidden">YES</bool>
 																<string key="NSFrame">{{124, 97}, {113, 17}}</string>
 																<reference key="NSSuperview" ref="466877436"/>
 																<reference key="NSNextKeyView" ref="1032080259"/>
@@ -1617,6 +1605,7 @@
 															<object class="NSTextField" id="30250115">
 																<reference key="NSNextResponder" ref="466877436"/>
 																<int key="NSvFlags">268</int>
+																<bool key="NSHidden">YES</bool>
 																<string key="NSFrame">{{88, 130}, {149, 17}}</string>
 																<reference key="NSSuperview" ref="466877436"/>
 																<reference key="NSNextKeyView" ref="723868141"/>
@@ -1634,6 +1623,7 @@
 															<object class="NSTextField" id="552359960">
 																<reference key="NSNextResponder" ref="466877436"/>
 																<int key="NSvFlags">268</int>
+																<bool key="NSHidden">YES</bool>
 																<string key="NSFrame">{{165, 63}, {71, 17}}</string>
 																<reference key="NSSuperview" ref="466877436"/>
 																<reference key="NSNextKeyView" ref="340439006"/>
@@ -4710,6 +4700,7 @@
 											<object class="NSBox" id="696166932">
 												<reference key="NSNextResponder" ref="677795415"/>
 												<int key="NSvFlags">12</int>
+												<bool key="NSHidden">YES</bool>
 												<array class="NSMutableArray" key="NSSubviews">
 													<object class="NSView" id="635126289">
 														<reference key="NSNextResponder" ref="696166932"/>
@@ -4883,6 +4874,7 @@
 											<object class="NSBox" id="702493774">
 												<reference key="NSNextResponder" ref="677795415"/>
 												<int key="NSvFlags">12</int>
+												<bool key="NSHidden">YES</bool>
 												<array class="NSMutableArray" key="NSSubviews">
 													<object class="NSView" id="689495778">
 														<reference key="NSNextResponder" ref="702493774"/>
@@ -7223,14 +7215,7 @@
 					</object>
 					<int key="connectionID">122</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toolBarIconClicked:</string>
-						<reference key="source" ref="1032680435"/>
-						<reference key="destination" ref="511967577"/>
-					</object>
-					<int key="connectionID">123</int>
-				</object>
+					<!-- removed connection to GTD toolbar item (connectionID 123) -->
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">toolBarIconClicked:</string>
@@ -10597,7 +10582,7 @@
 							<reference ref="472233532"/>
 							<reference ref="412940860"/>
 							<reference ref="932589005"/>
-							<reference ref="511967577"/>
+								<!-- removed GTD toolbar item ref 511967577 -->
 							<reference ref="75158938"/>
 							<reference ref="437126513"/>
 							<reference ref="827447972"/>
@@ -10637,11 +10622,7 @@
 						<reference key="object" ref="75158938"/>
 						<reference key="parent" ref="843717783"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">111</int>
-						<reference key="object" ref="511967577"/>
-						<reference key="parent" ref="843717783"/>
-					</object>
+					<!-- removed IBObjectRecord for GTD toolbar item (id 111, ref 511967577) -->
 					<object class="IBObjectRecord">
 						<int key="objectID">99</int>
 						<reference key="object" ref="932589005"/>

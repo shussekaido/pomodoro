@@ -17,7 +17,7 @@
 		698F4624133B5AF900311E34 /* growl.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45BC133B5AF900311E34 /* growl.png */; };
 		698F4625133B5AF900311E34 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 698F45BD133B5AF900311E34 /* icon.icns */; };
 		698F4626133B5AF900311E34 /* load.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45BE133B5AF900311E34 /* load.png */; };
-		698F4627133B5AF900311E34 /* pomodoro-gtd.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45BF133B5AF900311E34 /* pomodoro-gtd.png */; };
+			/* 698F4627133B5AF900311E34 removed: pomodoro-gtd.png in Resources */
 		698F4628133B5AF900311E34 /* pomodoro.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45C0133B5AF900311E34 /* pomodoro.png */; };
 		698F4629133B5AF900311E34 /* pomodoro_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45C1133B5AF900311E34 /* pomodoro_n.png */; };
 		698F462A133B5AF900311E34 /* pomodoroBreak.png in Resources */ = {isa = PBXBuildFile; fileRef = 698F45C2133B5AF900311E34 /* pomodoroBreak.png */; };
@@ -117,12 +117,7 @@
 		69ED63FE133B9F5F003F59BA /* getToDoListFromThings.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45D4133B5AF900311E34 /* getToDoListFromThings.applescript */; };
 		69ED63FF133B9F5F003F59BA /* insertIntoLoginItems.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45D5133B5AF900311E34 /* insertIntoLoginItems.applescript */; };
 		69ED6400133B9F5F003F59BA /* removeFromLoginItems.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45D6133B5AF900311E34 /* removeFromLoginItems.applescript */; };
-		69ED6401133B9F5F003F59BA /* setStatusToAvailableInAdium.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45D7133B5AF900311E34 /* setStatusToAvailableInAdium.applescript */; };
-		69ED6402133B9F5F003F59BA /* setStatusToAvailableInIChat.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45D8133B5AF900311E34 /* setStatusToAvailableInIChat.applescript */; };
-		69ED6403133B9F5F003F59BA /* setStatusToAvailableInSkype.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45D9133B5AF900311E34 /* setStatusToAvailableInSkype.applescript */; };
-		69ED6404133B9F5F003F59BA /* setStatusToPomodoroInAdium.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45DA133B5AF900311E34 /* setStatusToPomodoroInAdium.applescript */; };
-		69ED6405133B9F5F003F59BA /* setStatusToPomodoroInIChat.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45DB133B5AF900311E34 /* setStatusToPomodoroInIChat.applescript */; };
-		69ED6406133B9F5F003F59BA /* setStatusToPomodoroInSkype.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 698F45DC133B5AF900311E34 /* setStatusToPomodoroInSkype.applescript */; };
+		/* Removed legacy Adium/iChat/Skype AppleScript build files */
 		69ED6411133BB31F003F59BA /* SmartTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ED6410133BB31F003F59BA /* SmartTimer.m */; };
 		69ED6414133BB502003F59BA /* SmartTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ED6413133BB502003F59BA /* SmartTimerTests.m */; };
 		69FCF747135729DD003862DC /* ringBreak.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69FCF746135729DD003862DC /* ringBreak.wav */; };
@@ -239,7 +234,7 @@
 		698F45BC133B5AF900311E34 /* growl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = growl.png; sourceTree = "<group>"; };
 		698F45BD133B5AF900311E34 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		698F45BE133B5AF900311E34 /* load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = load.png; sourceTree = "<group>"; };
-		698F45BF133B5AF900311E34 /* pomodoro-gtd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pomodoro-gtd.png"; sourceTree = "<group>"; };
+			/* 698F45BF133B5AF900311E34 removed: pomodoro-gtd.png */
 		698F45C0133B5AF900311E34 /* pomodoro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pomodoro.png; sourceTree = "<group>"; };
 		698F45C1133B5AF900311E34 /* pomodoro_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pomodoro_n.png; sourceTree = "<group>"; };
 		698F45C2133B5AF900311E34 /* pomodoroBreak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pomodoroBreak.png; sourceTree = "<group>"; };
@@ -481,7 +476,7 @@
 				698F45BC133B5AF900311E34 /* growl.png */,
 				698F45BD133B5AF900311E34 /* icon.icns */,
 				698F45BE133B5AF900311E34 /* load.png */,
-				698F45BF133B5AF900311E34 /* pomodoro-gtd.png */,
+					/* pomodoro-gtd.png removed */
 				698F45C0133B5AF900311E34 /* pomodoro.png */,
 				698F45C1133B5AF900311E34 /* pomodoro_n.png */,
 				698F45C2133B5AF900311E34 /* pomodoroBreak.png */,
@@ -510,14 +505,9 @@
 				DBD776D816604A63003F58B4 /* getActiveUrlsFromBrowsers.applescript */,
 				698F45D5133B5AF900311E34 /* insertIntoLoginItems.applescript */,
 				698F45D6133B5AF900311E34 /* removeFromLoginItems.applescript */,
-				698F45D7133B5AF900311E34 /* setStatusToAvailableInAdium.applescript */,
-				698F45D8133B5AF900311E34 /* setStatusToAvailableInIChat.applescript */,
-				DB4C2A86166888A6000B2718 /* setStatusToAvailableInMessages.applescript */,
-				698F45D9133B5AF900311E34 /* setStatusToAvailableInSkype.applescript */,
-				698F45DA133B5AF900311E34 /* setStatusToPomodoroInAdium.applescript */,
-				698F45DB133B5AF900311E34 /* setStatusToPomodoroInIChat.applescript */,
-				DB4C2A88166888D4000B2718 /* setStatusToPomodoroInMessages.applescript */,
-				698F45DC133B5AF900311E34 /* setStatusToPomodoroInSkype.applescript */,
+					/* removed legacy Adium/iChat/Skype applescripts from project group */
+					DB4C2A86166888A6000B2718 /* setStatusToAvailableInMessages.applescript */,
+					DB4C2A88166888D4000B2718 /* setStatusToPomodoroInMessages.applescript */,
 				DCAF37C7164AE360003764C9 /* getToDoListFromReminders.applescript */,
 				DCAF37CB164AFB6C003764C9 /* addTodoToReminders.applescript */,
 			);
@@ -1007,7 +997,7 @@
 				698F4624133B5AF900311E34 /* growl.png in Resources */,
 				698F4625133B5AF900311E34 /* icon.icns in Resources */,
 				698F4626133B5AF900311E34 /* load.png in Resources */,
-				698F4627133B5AF900311E34 /* pomodoro-gtd.png in Resources */,
+									/* pomodoro-gtd.png in Resources removed */
 				698F4628133B5AF900311E34 /* pomodoro.png in Resources */,
 				698F4629133B5AF900311E34 /* pomodoro_n.png in Resources */,
 				698F462A133B5AF900311E34 /* pomodoroBreak.png in Resources */,
@@ -1038,6 +1028,11 @@
 				699CE31E1366D0E500BBC486 /* soundLow.png in Resources */,
 				69D17DD8136AAE5100F5D922 /* Pomodoro.sdef in Resources */,
 				DBD776DB16604D16003F58B4 /* safari.png in Resources */,
+				DBD776E316605886003F58B4 /* getActiveUrlsFromBrowsers.applescript in Resources */,
+				DCAF37CD164B074D003764C9 /* getToDoListFromReminders.applescript in Resources */,
+				DCAF37CE164B074D003764C9 /* addTodoToReminders.applescript in Resources */,
+				69ED63FF133B9F5F003F59BA /* insertIntoLoginItems.applescript in Resources */,
+				69ED6400133B9F5F003F59BA /* removeFromLoginItems.applescript in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

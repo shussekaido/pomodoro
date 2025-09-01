@@ -195,7 +195,6 @@
     [self registerForPomodoro:_PMPomoNameCanceled method:@selector(setPomodoroNametoLastBeforeCancel:)];
     [self registerForPomodoro:_PMPomoNameGiven method:@selector(pomodoroNameGiven:)];
     [self registerForPomodoro:_PMPomoWillStart method:@selector(pomodoroWillStart:)];    
-   
 }
 
 
