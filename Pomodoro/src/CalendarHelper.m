@@ -24,48 +24,23 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "CalendarHelper.h"
-#import "CalendarStore/CalendarStore.h"
+#import "PDCalendarService.h"
 
 @implementation CalendarHelper
 
 
 + (void) publishEvent: (NSString*)selectedCalendar withTitle:(NSString*)title duration:(int)duration {
-	
-	CalCalendar *calendar;
-	for (calendar in [[CalCalendarStore defaultCalendarStore] calendars]){
-		if ([[calendar title] isEqual:selectedCalendar])
-			break;
-		calendar = NULL;
-	}
-	if (calendar == NULL){
-		calendar = [CalCalendar calendar];
-		[calendar setTitle:selectedCalendar];
-	}
-	
-	CalEvent *event = [CalEvent event];
-	event.calendar = calendar;
-	event.title = title;
-	event.startDate = [[NSDate date] addTimeInterval:(-60 * duration)];	
-	event.endDate = [NSDate date];
-	
-	NSError *calError;
-	
-	if ([[CalCalendarStore defaultCalendarStore] saveCalendar:calendar error:&calError] == NO) {
-		//[[NSAlert alertWithError:calError] runModal];
-		NSLog(@"Calendar error: %@", calError);
-	}
-	
-	if ([[CalCalendarStore defaultCalendarStore] saveEvent:event 
-													  span:CalSpanThisEvent 
-													 error:&calError] == NO) {
-		//[[NSAlert alertWithError:calError] runModal];
-		NSLog(@"Calendar event error: %@", calError);
-
-	}
-	
-	
-	
+    // Backward-compatible shim: create a completed event that ended now, starting duration minutes ago
+    PDCalendarService *svc = [PDCalendarService shared];
+    // Ensure calendar by selected name exists/selected
+    if (selectedCalendar.length > 0) {
+        NSError *err = nil;
+        [svc resolveOrCreateCalendarNamed:selectedCalendar error:&err];
+    }
+    NSString *eventId = [svc startSessionWithTitle:title notes:nil durationMinutes:duration];
+    if (eventId) {
+        [svc finishActiveSessionWithNotes:nil];
+    }
 }
 
 @end
-

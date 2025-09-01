@@ -24,8 +24,7 @@
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "CalendarController.h"
-#import "CalendarStore/CalendarStore.h"
-#import "CalendarHelper.h"
+#import "PDCalendarService.h"
 #import "PomoNotifications.h"
 #import "Pomodoro.h"
 
@@ -35,15 +34,25 @@
 
 
 - (IBAction)initCalendars:(id)sender {
-    
     [calendarsCombo removeAllItems];
-    for (CalCalendar *cal in [[CalCalendarStore defaultCalendarStore] calendars]){
-        [calendarsCombo addItemWithObjectValue:[cal title]];
-        if ([[cal title] isEqual:_selectedCalendar]){
-            [calendarsCombo selectItemWithObjectValue:[cal title]];
-        }
+    NSArray *titles = [[PDCalendarService shared] writableCalendarTitles];
+    for (NSString *title in titles) {
+        [calendarsCombo addItemWithObjectValue:title];
     }
-    
+    NSString *storedName = [[PDCalendarService shared] storedCalendarName];
+    if (storedName.length > 0) {
+        [calendarsCombo selectItemWithObjectValue:storedName];
+    }
+}
+
+- (IBAction)calendarSelectionChanged:(id)sender {
+    NSString *name = [[self calendarsCombo] stringValue];
+    if (name.length == 0) return;
+    NSError *err = nil;
+    // Resolve or create chosen calendar, then store
+    id cal = [[PDCalendarService shared] resolveOrCreateCalendarNamed:name error:&err];
+    (void)cal; (void)err;
+    [self initCalendars:self];
 }
 
 #pragma mark ---- Pomodoro notifications methods ----
@@ -53,17 +62,65 @@
 	if ([self checkDefault:@"calendarEnabled"]) {
         Pomodoro* pomo = [notification object];
         int duration = (int)lround(pomo.realDuration/60.0);
-		[CalendarHelper publishEvent:_selectedCalendar withTitle:[self bindCommonVariables:@"calendarEnd"] duration:duration];
+        NSString *notes = [NSString stringWithFormat:@"Ended. Duration: %d min. ExInt:%ld InInt:%ld",
+                           duration, (long)_dailyExternalInterruptions, (long)_dailyInternalInterruptions];
+        [[PDCalendarService shared] finishActiveSessionWithNotes:notes];
 	}
 
+}
+
+-(void) pomodoroStarted:(NSNotification*) notification {
+    if ([self checkDefault:@"calendarEnabled"]) {
+        // Ensure access and calendar are prepared
+        __weak typeof(self) weakSelf = self;
+        [[PDCalendarService shared] requestAccessWithCompletion:^(BOOL granted, NSError *error) {
+            if (!granted) return;
+            NSString *title = [weakSelf bindCommonVariables:@"calendarEnd"]; // reuse existing template
+            NSInteger initial = _initialTime;
+            NSString *notes = [NSString stringWithFormat:@"Started. Planned: %ld min.", (long)initial];
+            [[PDCalendarService shared] startSessionWithTitle:title notes:notes durationMinutes:initial];
+        }];
+    }
+}
+
+-(void) pomodoroReset:(NSNotification*) notification {
+    if ([self checkDefault:@"calendarEnabled"]) {
+        [[PDCalendarService shared] deleteActiveSessionEvent];
+    }
+}
+
+-(void) pomodoroExternallyInterrupted:(NSNotification*) notification {
+    if ([self checkDefault:@"calendarEnabled"]) {
+        // Keep the event, still update at finish; no-op here
+    }
+}
+
+-(void) pomodoroInternallyInterrupted:(NSNotification*) notification {
+    if ([self checkDefault:@"calendarEnabled"]) {
+        // Keep the event, still update at finish; no-op here
+    }
 }
 
 #pragma mark ---- Lifecycle methods ----
 
 - (void)awakeFromNib {
-    
+    // Prepare calendar access and ensure calendar exists (default name: Pomodoro)
+    NSString *desiredName = [[PDCalendarService shared] storedCalendarName];
+    if (desiredName.length == 0) desiredName = @"Pomodoro";
+    [[PDCalendarService shared] requestAccessWithCompletion:^(BOOL granted, NSError *error) {
+        if (granted) {
+            NSError *resolveErr = nil;
+            [[PDCalendarService shared] resolveOrCreateCalendarNamed:desiredName error:&resolveErr];
+        }
+    }];
+
     [self initCalendars:self];
+    // Ensure action is wired even if XIB isn't
+    [self.calendarsCombo setTarget:self];
+    [self.calendarsCombo setAction:@selector(calendarSelectionChanged:)];
+    [self registerForPomodoro:_PMPomoStarted method:@selector(pomodoroStarted:)];
     [self registerForPomodoro:_PMPomoFinished method:@selector(pomodoroFinished:)];
+    [self registerForPomodoro:_PMPomoReset method:@selector(pomodoroReset:)];
 }
 
 

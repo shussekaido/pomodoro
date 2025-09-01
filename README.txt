@@ -58,6 +58,26 @@ Xcode 4:
 Xcode 3: (not actively maintained)
 1) Should work, but I don't maintain it anymore.
 
+---------------------------
+Calendar Integration (EventKit)
+---------------------------
+
+Pomodoro can log each session to a calendar using EventKit (macOS 13+).
+
+- Enable logging: open Preferences → Calendar and check the calendar option.
+- Calendar creation: on first use, Pomodoro creates or reuses an iCloud calendar named "Pomodoro" (or the name you choose) and stores its identifier.
+- Permissions: on first launch, macOS prompts for Calendar access. On macOS 14/15, the app requests write‑only access and falls back to full access if needed.
+- Choosing a calendar: the calendar picker lists writable calendars. Selecting a name resolves/creates that calendar and persists the choice.
+- Event lifecycle: starting a pomodoro creates an event from now to planned end; finishing updates the event end time to now; reset deletes the active event.
+
+Troubleshooting
+- Ensure the "Pomodoro" calendar is visible (checked) in Apple Calendar’s sidebar (under iCloud or On My Mac).
+- Check permissions: System Settings → Privacy & Security → Calendars → enable "Pomodoro".
+- Reset selection: run
+  `defaults delete com.ugolandini.Pomodoro calendarIdentifier; defaults delete com.ugolandini.Pomodoro selectedCalendar`
+  then relaunch and re‑enable the calendar option.
+- Logs: run `log stream --style syslog --predicate 'process == "Pomodoro"'` while starting/finishing a session.
+
 -------
 Twitter
 -------

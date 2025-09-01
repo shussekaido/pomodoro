@@ -164,7 +164,7 @@
 	[defaultValues setObject:[NSNumber numberWithBool:YES] forKey:@"showTimeOnStatusEnabled"];
 	
 	[defaultValues setObject:[NSNumber numberWithBool:NO] forKey:@"calendarEnabled"];
-	[defaultValues setObject:@"Pomodoros" forKey:@"selectedCalendar"];
+	[defaultValues setObject:@"Pomodoro" forKey:@"selectedCalendar"];
 	[defaultValues setObject:NSLocalizedString(@"$duration minutes Pomodoro '$pomodoroName'", @"Calendar end text") forKey:@"calendarEnd"];
 
 		
