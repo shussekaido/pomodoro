@@ -34,6 +34,7 @@
 #import "ShortcutController.h"
 #import "PomodoroNotifier.h"
 #import "PomoNotifications.h"
+#import "NotificationService.h"
 #include <CoreServices/CoreServices.h>
 
 @implementation PomodoroController
@@ -513,6 +514,9 @@
 - (void)awakeFromNib {
     
     [self registerForAllPomodoroEvents];
+    // (Removed debug file logging)
+    // Ensure notifications authorization requested on launch
+    [[NotificationService shared] requestAuthorizationIfNeeded];
     
 	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
@@ -589,7 +593,7 @@
 	if ([self checkDefault:@"showSplashScreenAtStartup"]) {
 		[self help:nil];
 	}	
-		
+    
 }
 
 

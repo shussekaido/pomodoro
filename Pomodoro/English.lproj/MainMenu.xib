@@ -1492,8 +1492,8 @@ wGw</bytes>
 							<object class="NSMutableString" key="NSToolbarItemIdentifier">
 								<characters key="NS.bytes">1827B4E4-417C-42AF-BCC1-0EE48F9C8A13</characters>
 							</object>
-							<string key="NSToolbarItemLabel">Growl</string>
-							<string key="NSToolbarItemPaletteLabel">Growl</string>
+							<string key="NSToolbarItemLabel">Notifications</string>
+							<string key="NSToolbarItemPaletteLabel">Notifications</string>
 							<string key="NSToolbarItemToolTip"/>
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
@@ -4379,7 +4379,7 @@ wGw</bytes>
 												<object class="NSButtonCell" key="NSCell" id="283459474">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">134217728</int>
-													<string key="NSContents">Check Growl Installation</string>
+													<string key="NSContents">Check Notifications</string>
 													<reference key="NSSupport" ref="190615124"/>
 													<reference key="NSControlView" ref="477774794"/>
 													<int key="NSButtonFlags">-2038284288</int>
@@ -4427,7 +4427,7 @@ wGw</bytes>
 												<object class="NSTextFieldCell" key="NSCell" id="746372435">
 													<int key="NSCellFlags">68157504</int>
 													<int key="NSCellFlags2">272761856</int>
-													<string key="NSContents">Notification Center will be used on 10.8+ if Growl is not installed.</string>
+													<string key="NSContents">Uses macOS Notification Center for alerts.</string>
 													<reference key="NSSupport" ref="26"/>
 													<string key="NSCellIdentifier">_NS:1535</string>
 													<reference key="NSControlView" ref="671924735"/>
@@ -4441,7 +4441,7 @@ wGw</bytes>
 										<string key="NSFrameSize">{810, 668}</string>
 										<reference key="NSNextKeyView" ref="1061796807"/>
 									</object>
-									<string key="NSLabel">Growl</string>
+										<string key="NSLabel">Notifications</string>
 									<reference key="NSColor" ref="230566979"/>
 									<reference key="NSTabView" ref="282875536"/>
 								</object>
@@ -11868,7 +11868,7 @@ wGw</bytes>
 							<reference ref="590527923"/>
 						</array>
 						<reference key="parent" ref="946611983"/>
-						<string key="objectName">Tab View (General, Pomodoro, Twitter, Voice, Growl, GTD, Scripts, Calendar, Shortcut)</string>
+						<string key="objectName">Tab View (General, Pomodoro, Twitter, Voice, Notifications, GTD, Scripts, Calendar, Shortcut)</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">103</int>

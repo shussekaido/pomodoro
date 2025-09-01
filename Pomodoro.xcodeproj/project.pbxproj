@@ -139,6 +139,7 @@
 		DCAF37CC164AFB6C003764C9 /* addTodoToReminders.applescript in Sources */ = {isa = PBXBuildFile; fileRef = DCAF37CB164AFB6C003764C9 /* addTodoToReminders.applescript */; };
 		DCAF37CD164B074D003764C9 /* getToDoListFromReminders.applescript in Resources */ = {isa = PBXBuildFile; fileRef = DCAF37C7164AE360003764C9 /* getToDoListFromReminders.applescript */; };
 		DCAF37CE164B074D003764C9 /* addTodoToReminders.applescript in Resources */ = {isa = PBXBuildFile; fileRef = DCAF37CB164AFB6C003764C9 /* addTodoToReminders.applescript */; };
+		DBF0AA01123456789ABCDE01 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF0AA00123456789ABCDE00 /* NotificationService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -437,6 +438,8 @@
 		DBD776E116605536003F58B4 /* BrowsingNannyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrowsingNannyController.m; path = src/BrowsingNannyController.m; sourceTree = "<group>"; };
 		DCAF37C7164AE360003764C9 /* getToDoListFromReminders.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = getToDoListFromReminders.applescript; sourceTree = "<group>"; };
 		DCAF37CB164AFB6C003764C9 /* addTodoToReminders.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = addTodoToReminders.applescript; sourceTree = "<group>"; };
+		DBF0A9FF123456789ABCDEFF /* NotificationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationService.h; path = src/NotificationService.h; sourceTree = "<group>"; };
+		DBF0AA00123456789ABCDE00 /* NotificationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationService.m; path = src/NotificationService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -603,6 +606,8 @@
 				69ED6410133BB31F003F59BA /* SmartTimer.m */,
 				DBE0F01E1A2B3C4D5E6F0004 /* PDCalendarService.h */,
 				DBE0F01F1A2B3C4D5E6F0003 /* PDCalendarService.m */,
+				DBF0A9FF123456789ABCDEFF /* NotificationService.h */,
+				DBF0AA00123456789ABCDE00 /* NotificationService.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -1148,7 +1153,8 @@
 					69D17E24136C103800F5D922 /* InternalInterruptCommand.m in Sources */,
 					DBD776E216605537003F58B4 /* BrowsingNannyController.m in Sources */,
 				DB8AF4F4165EEB0F0039DA49 /* OpenUrlCommand.m in Sources */,
-				
+				DBF0AA01123456789ABCDE01 /* NotificationService.m in Sources */,
+
 					DBAC0003133B5AF900311E34 /* GrowlApplicationBridge.m in Sources */,
 				);
 			runOnlyForDeploymentPostprocessing = 0;

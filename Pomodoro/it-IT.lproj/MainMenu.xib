@@ -1265,8 +1265,8 @@
 							<object class="NSMutableString" key="NSToolbarItemIdentifier">
 								<characters key="NS.bytes">1827B4E4-417C-42AF-BCC1-0EE48F9C8A13</characters>
 							</object>
-							<string key="NSToolbarItemLabel">Growl</string>
-							<string key="NSToolbarItemPaletteLabel">Growl</string>
+							<string key="NSToolbarItemLabel">Notifiche</string>
+							<string key="NSToolbarItemPaletteLabel">Notifiche</string>
 							<string key="NSToolbarItemToolTip"/>
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
@@ -4019,7 +4019,7 @@
 												<object class="NSButtonCell" key="NSCell" id="283459474">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134217728</int>
-													<string key="NSContents">Test installazione Growl</string>
+													<string key="NSContents">Controlla Notifiche</string>
 													<reference key="NSSupport" ref="190615124"/>
 													<reference key="NSControlView" ref="477774794"/>
 													<int key="NSButtonFlags">-2038284033</int>
@@ -4058,7 +4058,7 @@
 										<string key="NSFrameSize">{810, 668}</string>
 										<reference key="NSNextKeyView" ref="1061796807"/>
 									</object>
-									<string key="NSLabel">Growl</string>
+									<string key="NSLabel">Notifiche</string>
 									<reference key="NSColor" ref="230566979"/>
 									<reference key="NSTabView" ref="282875536"/>
 								</object>
@@ -10680,7 +10680,7 @@
 							<reference ref="607072142"/>
 						</array>
 						<reference key="parent" ref="946611983"/>
-						<string key="objectName">Tab View (General, Pomodoro, Twitter, Voice, Growl, GTD, Scripts, Calendar, Shortcut)</string>
+						<string key="objectName">Tab View (General, Pomodoro, Twitter, Voice, Notifiche, GTD, Scripts, Calendar, Shortcut)</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">147</int>

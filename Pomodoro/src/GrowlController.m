@@ -26,6 +26,7 @@
 #import "GrowlController.h"
 #import "GrowlNotifier.h"
 #import "PomoNotifications.h"
+#import "NotificationService.h"
 
 @implementation GrowlController
 
@@ -34,40 +35,20 @@
 #pragma mark ---- Method-independent notifications ----
 
 -(void) notify:(NSString *)message title:(NSString *)title sticky:(BOOL)sticky {
-    if (growl && [growl isGrowlRunning]) {
-        [growl growlAlert:message title:title sticky:sticky];
-    } else if (userNotificationCenter) {
-        //Dynamic for compilation on <10.8
-        Class klass = NSClassFromString(@"NSUserNotification");
-        id notification = [[klass alloc] init];
-        [notification setTitle:title];
-        [notification setInformativeText:message];
-        [userNotificationCenter deliverNotification:notification];
-    }
+    (void)sticky; // Not applicable for UN notifications; system decides style.
+    [[NotificationService shared] postWithTitle:title body:message identifier:nil];
 }
 
 #pragma mark ---- Growl ----
 
 -(IBAction) checkGrowl:(id)sender {
-    
-    if ([growl isGrowlInstalled] && [growl isGrowlRunning]) {
-        [growlStatus setImage:greenButtonImage];
-        [sender setToolTip:@"Growl installed and running!"];
-        [growlStatus setToolTip:@"Growl installed and running!"];
-    } else if (userNotificationCenter != nil) {
-        [growlStatus setImage:greenButtonImage];
-        [sender setToolTip:@"Growl is not running but Notification Center is available!"];
-        [growlStatus setToolTip:@"Growl is not running but Notification Center is available!"];
-    } else if ([growl isGrowlInstalled]) {
-        [growlStatus setImage:yellowButtonImage];
-        [sender setToolTip:@"Growl installed but not running!"];
-        [growlStatus setToolTip:@"Growl installed but not running!"];
-    } else {
-       	[growlStatus setImage:redButtonImage];
-        [sender setToolTip:@"Growl not installed and not running!"];
-        [growlStatus setToolTip:@"Growl not installed and not running!"];
-    }
-    
+    [[NotificationService shared] requestAuthorizationIfNeeded];
+    [growlStatus setImage:yellowButtonImage];
+    [sender setToolTip:@"Notifications will be requested on first use."];
+    [growlStatus setToolTip:@"Notifications will be requested on first use."];
+    [[NotificationService shared] postWithTitle:@"Pomodoro"
+                                          body:@"Test notification"
+                                     identifier:nil];
 }
 
 
@@ -75,20 +56,22 @@
 
 -(void) pomodoroStarted:(NSNotification*) notification {
 
-	if ([self checkDefault:@"growlAtStartEnabled"]) {
-		BOOL sticky = [self checkDefault:@"stickyStartEnabled"];
-		[self notify: [self bindCommonVariables:@"growlStart"]  title:NSLocalizedString(@"Pomodoro started",@"Growl header for pomodoro start") sticky:sticky];
-	}
+    if ([self checkDefault:@"notificationAtStartEnabled"] || [self checkDefault:@"growlAtStartEnabled"]) {
+        BOOL sticky = [self checkDefault:@"stickyStartEnabled"];
+        NSString *msg = [self bindCommonVariables:@"notificationStart"];
+        if (!msg) msg = [self bindCommonVariables:@"growlStart"];
+        [self notify: msg title:NSLocalizedString(@"Pomodoro started",@"Pomodoro started header") sticky:sticky];
+    }
 }
 
 - (void) interrupted {
     
     NSString* interruptTimeString = [[[NSUserDefaults standardUserDefaults] objectForKey:@"interruptTime"] stringValue];
-	if ([self checkDefault:@"growlAtInterruptEnabled"]) {
-        
+    if ([self checkDefault:@"notificationAtInterruptEnabled"] || [self checkDefault:@"growlAtInterruptEnabled"]) {
+
 		NSString* growlString = [self bindCommonVariables:@"growlInterrupt"];		
-		[self notify: [growlString stringByReplacingOccurrencesOfString:@"$secs" withString:interruptTimeString] title:NSLocalizedString(@"Pomodoro interrupted",@"Growl title for interruptions") sticky:NO];
-	}
+        [self notify: [growlString stringByReplacingOccurrencesOfString:@"$secs" withString:interruptTimeString] title:NSLocalizedString(@"Pomodoro interrupted",@"Pomodoro interrupted header") sticky:NO];
+    }
     
 }
 
@@ -106,25 +89,31 @@
 
 -(void) pomodoroInterruptionMaxTimeIsOver:(NSNotification*) notification {
     
-    if ([self checkDefault:@"growlAtInterruptOverEnabled"]) {
-		[self notify:[self bindCommonVariables:@"growlInterruptOver"] title:NSLocalizedString(@"Pomodoro reset",@"Growl header for reset") sticky:NO];
+    if ([self checkDefault:@"notificationAtInterruptOverEnabled"] || [self checkDefault:@"growlAtInterruptOverEnabled"]) {
+        NSString *msg = [self bindCommonVariables:@"notificationInterruptOver"];
+        if (!msg) msg = [self bindCommonVariables:@"growlInterruptOver"];
+        [self notify:msg title:NSLocalizedString(@"Pomodoro reset",@"Pomodoro reset header") sticky:NO];
     }
 
 }
 
 -(void) pomodoroReset:(NSNotification*) notification {
     
-	if ([self checkDefault:@"growlAtResetEnabled"]) {
-		[self notify:[self bindCommonVariables:@"growlReset"] title:NSLocalizedString(@"Pomodoro reset",@"Growl header for reset") sticky:NO];
-	}
+    if ([self checkDefault:@"notificationAtResetEnabled"] || [self checkDefault:@"growlAtResetEnabled"]) {
+        NSString *msg = [self bindCommonVariables:@"notificationReset"];
+        if (!msg) msg = [self bindCommonVariables:@"growlReset"];
+        [self notify:msg title:NSLocalizedString(@"Pomodoro reset",@"Pomodoro reset header") sticky:NO];
+    }
     
 }
 
 -(void) pomodoroResumed:(NSNotification*) notification {
     
-	if ([self checkDefault:@"growlAtResumeEnabled"]) {
-		[self notify:[self bindCommonVariables:@"growlResume"] title:NSLocalizedString(@"Pomodoro resumed",@"Growl header for resumed pomodoro") sticky:NO];
-	}
+    if ([self checkDefault:@"notificationAtResumeEnabled"] || [self checkDefault:@"growlAtResumeEnabled"]) {
+        NSString *msg = [self bindCommonVariables:@"notificationResume"];
+        if (!msg) msg = [self bindCommonVariables:@"growlResume"];
+        [self notify:msg title:NSLocalizedString(@"Pomodoro resumed",@"Pomodoro resumed header") sticky:NO];
+    }
     
 }
 
@@ -134,19 +123,23 @@
 
 -(void) breakFinished:(NSNotification*) notification {
     
-	if ([self checkDefault:@"growlAtBreakFinishedEnabled"]) {
-		BOOL sticky = [self checkDefault:@"stickyBreakFinishedEnabled"];
-		[self notify:[self bindCommonVariables:@"growlBreakFinished"] title:NSLocalizedString(@"Pomodoro break finished",@"Growl header for finished break") sticky:sticky];
-	}
+    if ([self checkDefault:@"notificationAtBreakFinishedEnabled"] || [self checkDefault:@"growlAtBreakFinishedEnabled"]) {
+        BOOL sticky = [self checkDefault:@"stickyBreakFinishedEnabled"];
+        NSString *msg = [self bindCommonVariables:@"notificationBreakFinished"];
+        if (!msg) msg = [self bindCommonVariables:@"growlBreakFinished"];
+        [self notify:msg title:NSLocalizedString(@"Pomodoro break finished",@"Pomodoro break finished header") sticky:sticky];
+    }
     
 }
 
 -(void) pomodoroFinished:(NSNotification*) notification {
     
-	if ([self checkDefault:@"growlAtEndEnabled"]) {
-		BOOL sticky = [self checkDefault:@"stickyEndEnabled"];
-		[self notify:[self bindCommonVariables:@"growlEnd"] title:NSLocalizedString(@"Pomodoro finished",@"Growl header for finished pomodoro") sticky:sticky];
-	}
+    if ([self checkDefault:@"notificationAtEndEnabled"] || [self checkDefault:@"growlAtEndEnabled"]) {
+        BOOL sticky = [self checkDefault:@"stickyEndEnabled"];
+        NSString *msg = [self bindCommonVariables:@"notificationEnd"];
+        if (!msg) msg = [self bindCommonVariables:@"growlEnd"];
+        [self notify:msg title:NSLocalizedString(@"Pomodoro finished",@"Pomodoro finished header") sticky:sticky];
+    }
     
 }
 
@@ -161,39 +154,31 @@
 	NSString* timePassedString = [NSString stringWithFormat:@"%ld", timePassed/60];
 	NSString* timeString = [NSString stringWithFormat:@"%ld", time/60];
 	
-	if (timePassed%(60 * _growlEveryTimeMinutes) == 0 && time!=0) {	
-		if ([self checkDefault:@"growlAtEveryEnabled"]) {
-			NSString* msg = [[self bindCommonVariables:@"growlEvery"] stringByReplacingOccurrencesOfString:@"$mins" withString:[[[NSUserDefaults standardUserDefaults] objectForKey:@"growlEveryTimeMinutes"] stringValue]];
-			msg = [msg stringByReplacingOccurrencesOfString:@"$passed" withString:timePassedString];
-			msg = [msg stringByReplacingOccurrencesOfString:@"$time" withString:timeString];
-			[self notify:msg title:@"Pomodoro ticking" sticky:NO];
-		}
-	}
+    if (timePassed%(60 * _growlEveryTimeMinutes) == 0 && time!=0) {	
+        if ([self checkDefault:@"notificationAtEveryEnabled"] || [self checkDefault:@"growlAtEveryEnabled"]) {
+            NSString* base = [self bindCommonVariables:@"notificationEvery"]; if (!base) base = [self bindCommonVariables:@"growlEvery"];
+            NSString* mins = [[[NSUserDefaults standardUserDefaults] objectForKey:@"growlEveryTimeMinutes"] stringValue];
+            NSString* msg = [base stringByReplacingOccurrencesOfString:@"$mins" withString:mins];
+            msg = [msg stringByReplacingOccurrencesOfString:@"$passed" withString:timePassedString];
+            msg = [msg stringByReplacingOccurrencesOfString:@"$time" withString:timeString];
+            [self notify:msg title:@"Pomodoro ticking" sticky:NO];
+        }
+    }
 }
 
 #pragma mark ---- Lifecycle methods ----
 
 - (void)awakeFromNib {
-    
     [self registerForAllPomodoroEvents];
-    
-    //Backwards-compatible (dynamic) way to use notification center if available.
-    userNotificationCenter = nil;
-    Class klass = NSClassFromString(@"NSUserNotificationCenter");
-    if (klass)
-    {
-        //this is a singleton so it shouldn't need to be retained.
-        userNotificationCenter = [klass defaultUserNotificationCenter];
-    }
-    
+    [[NotificationService shared] requestAuthorizationIfNeeded];
+
     redButtonImage = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"red" ofType:@"png"]];
     greenButtonImage = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"green" ofType:@"png"]];
     yellowButtonImage = [[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"yellow" ofType:@"png"]];
-    
-    [growlEveryCombo addItemWithObjectValue: [NSNumber numberWithInt:2]];
-    [growlEveryCombo addItemWithObjectValue: [NSNumber numberWithInt:5]];
-    [growlEveryCombo addItemWithObjectValue: [NSNumber numberWithInt:10]];
-    
+
+    [growlEveryCombo addItemWithObjectValue:[NSNumber numberWithInt:2]];
+    [growlEveryCombo addItemWithObjectValue:[NSNumber numberWithInt:5]];
+    [growlEveryCombo addItemWithObjectValue:[NSNumber numberWithInt:10]];
 }
 
 
